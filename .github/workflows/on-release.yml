@@ -195,15 +195,16 @@ jobs:
         cd choco
         choco apikey --key ${{ secrets.CHOCO_APIKEY }} --source https://push.chocolatey.org/
         choco pack
-        choco push .\${{ steps.envirorment-variables.outputs.NUPKG_FILE }} --source https://push.chocolatey.org/
+        choco push .\agentless.01.01.nupkg --source https://push.chocolatey.org/
+        #choco push .\${{ steps.envirorment-variables.outputs.NUPKG_FILE }} --source https://push.chocolatey.org/
         move ./* ../
 
-    - name: Upload nupkg
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.envirorment-variables.outputs.PUSH_PATH }}
-        asset_path: ${{ steps.envirorment-variables.outputs.NUPKG_FILE }}
-        asset_name: ${{ steps.envirorment-variables.outputs.NUPKG_FILE }}
-        asset_content_type: application/zip
+    #- name: Upload nupkg
+     # uses: actions/upload-release-asset@v1
+      #env:
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #with:
+        #upload_url: ${{ steps.envirorment-variables.outputs.PUSH_PATH }}
+        #asset_path: ${{ steps.envirorment-variables.outputs.NUPKG_FILE }}
+        #asset_name: ${{ steps.envirorment-variables.outputs.NUPKG_FILE }}
+        #asset_content_type: application/zip

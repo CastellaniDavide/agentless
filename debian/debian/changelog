@@ -1,3 +1,9 @@
+agentless (00.02) focal; urgency=medium
+
+  * Fixed few bugs
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 22 Mar 2021 12:00:00 +1000
+
 agentless (00.01) focal; urgency=medium
 
   * Initial version
