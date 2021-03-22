@@ -20,7 +20,7 @@ jobs:
         pip install -r requirements/requirements.txt
     - name: Build
       run: |
-        python agentless/src/__init__.py --debug --csv --url=${{ secrets.SCHOOL_HARPERDB_URL }} --token=${{ secrets.SCHOOL_HARPERDB_TOKEN }}= --table=${{ secrets.SCHOOL_HARPERDB_TABLE }}  --adresses=192.168.0.0/16
+        sudo python agentless/src/__init__.py --debug --csv --url=${{ secrets.SCHOOL_HARPERDB_URL }} --token=${{ secrets.SCHOOL_HARPERDB_TOKEN }}= --table=${{ secrets.SCHOOL_HARPERDB_TABLE }}  --adresses=192.168.0.0
     - name: Check files
       run: |
         echo "---ping---"
