@@ -1,4 +1,4 @@
 ####### requirements.txt #######
 
-tabular-log
+tabular-log>=2.7
 requests

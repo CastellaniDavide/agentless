@@ -23,13 +23,13 @@ jobs:
         sudo apt install virtualbox
     - name: Build
       run: |
-        python agentless/src/__init__.py --debug --csv --url=${{ secrets.SCHOOL_HARPERDB_URL }} --token=${{ secrets.SCHOOL_HARPERDB_TOKEN }}= --OStable=${{ secrets.SCHOOL_HARPERDB_TABLE_OS }} --NETtable=${{ secrets.SCHOOL_HARPERDB_TABLE_NET }}
+        python agentless/src/__init__.py --debug --csv --url=${{ secrets.SCHOOL_HARPERDB_URL }} --token=${{ secrets.SCHOOL_HARPERDB_TOKEN }}= --table=${{ secrets.SCHOOL_HARPERDB_TABLE }}  --adresses=192.168.0.0/16
     - name: Check files
       run: |
-        echo "---OS---"
-        cat ./OS.csv
-        echo "---NET---"
-        cat ./net.csv
+        echo "---ping---"
+        cat ./ping.csv
+        echo "---log---"
+        cat ./trace.log
         
   test-pip:
     runs-on: ubuntu-20.04
