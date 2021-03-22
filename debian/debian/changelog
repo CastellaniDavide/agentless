@@ -1,3 +1,9 @@
+agentless (00.05) focal; urgency=medium
+
+  * Try another way to the pypi package
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 22 Mar 2021 20:30:00 +1000
+
 agentless (00.04) focal; urgency=medium
 
   * Fixed a bug

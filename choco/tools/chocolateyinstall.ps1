@@ -19,4 +19,4 @@ if ($new_path -notlike "*$ppath*")
 }
 
 # Installing pypi
-pip.exe install agentlesscd
+pip.exe install agentless
