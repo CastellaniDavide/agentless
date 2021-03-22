@@ -23,7 +23,7 @@ jobs:
         sudo apt install virtualbox
     - name: Build
       run: |
-        python agentless/__init__.py --debug --csv --url=${{ secrets.SCHOOL_HARPERDB_URL }} --token=${{ secrets.SCHOOL_HARPERDB_TOKEN }}= --OStable=${{ secrets.SCHOOL_HARPERDB_TABLE_OS }} --NETtable=${{ secrets.SCHOOL_HARPERDB_TABLE_NET }}
+        python agentless/src/__init__.py --debug --csv --url=${{ secrets.SCHOOL_HARPERDB_URL }} --token=${{ secrets.SCHOOL_HARPERDB_TOKEN }}= --OStable=${{ secrets.SCHOOL_HARPERDB_TABLE_OS }} --NETtable=${{ secrets.SCHOOL_HARPERDB_TABLE_NET }}
     - name: Check files
       run: |
         echo "---OS---"
