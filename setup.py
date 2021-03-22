@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from requests import get
 
 setup(
-      name='agentlesscd',
+      name='agentless',
       version=get("https://api.github.com/repos/CastellaniDavide/agentless/tags").json()[0]['name'].replace("v", ""), # Lastest release
       description=get("https://api.github.com/repos/CastellaniDavide/agentless").json()['description'],
       long_description=get("https://raw.githubusercontent.com/CastellaniDavide/agentless/main/docs/README.md").text,
