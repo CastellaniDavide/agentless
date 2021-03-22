@@ -166,7 +166,7 @@ jobs:
         choco install agentless -d-v -s . --pre -y --force
 
   publish-choco:
-    needs: test-choco
+    #needs: test-choco
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
