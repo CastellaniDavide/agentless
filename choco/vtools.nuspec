@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>agentless</id>
+    <version>01.01</version>
+    <title>agentless</title>
+    <authors>Castellani Davide</authors>
+    <projectUrl>https://github.com/CastellaniDavide/agentless</projectUrl>
+    <iconUrl>https://cdn.statically.io/gh/CastellaniDavide/agentless/main/docs/logo.png</iconUrl>
+    <tags>agentless</tags>
+    <description>
+      This tool can help you scan the network
+    </description>
+    
+    <dependencies>
+      <dependency id="python" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
