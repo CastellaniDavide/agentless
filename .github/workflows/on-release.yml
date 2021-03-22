@@ -24,7 +24,7 @@ jobs:
       run: |
         cd agentless
         mv src/__init__.py ./__init__.py
-        rm src/__init__.py
+        rm src
         rmdir src
     - name: Build and publish
       env:
