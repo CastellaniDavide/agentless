@@ -2,7 +2,7 @@
 To check the correct funtionality try to:
  - By hash: write into PowerShell : Get-FileHash C:\Progra~1\agentless\agentless.exe
 	The result will be: 
-   	- 57E4AD3C41C5B4ED378163B8FAA6646D75816F7D338405CAC78994CF95C83C27
+   	- 808C101BF8E66B39E9575EAF8244F6DB259E99DD662C3211F2E0E223580B0818
  - If you want you can check it manually with the source, you can found it in this link: https://github.com/CastellaniDavide/agentless
 
 ---

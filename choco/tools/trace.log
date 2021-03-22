@@ -1,0 +1,4 @@
+"Title","PCName","ExecutionCode","Message","ProcessID","ThreadID","MessageTime","MessageTimeForUsers"
+agentless,DAVIDECASTELLAN,1616442004,Created log,56680,56524,1616442004.865291,Mon Mar 22 20:40:04 2021
+agentless,DAVIDECASTELLAN,1616442004,Headers inizialized,56680,56524,1616442004.8806,Mon Mar 22 20:40:04 2021
+agentless,DAVIDECASTELLAN,1616442004,Pinged all,56680,56524,1616442007.545791,Mon Mar 22 20:40:07 2021

@@ -1,5 +1,0 @@
-PC_name,network_card_name,IPv4,MAC,Attachment
-Clone di ubuntu_base,enp0s,10.0.2.1,080027A7051,NAT
-Clone di ubuntu_base2,enp0s,10.0.2.1,080027A7051,Bridged Interface 'Realtek PCIe GbE Family Controller #2'
-gpg_base,enp0s,10.0.2.1,080027A7051,NAT
-Clone di gpg_base,enp0s,10.0.2.1,080027A7051,NAT

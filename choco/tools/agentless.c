@@ -12,7 +12,7 @@ int main(int argc, char **argv)
         arr = concat(concat(arr, " "), argv[i+1]);
     }
 
-	system(concat("python3.exe -c \"exec(\\\"from agentless import *;laucher()\\\")\" ", arr));
+	system(concat("python.exe -c \"exec(\\\"from agentless import *;laucher()\\\")\" ", arr));
 }
 
 char* concat(const char *s1, const char *s2)
