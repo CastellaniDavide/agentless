@@ -13,7 +13,7 @@ import socket
 from datetime import datetime
 
 __author__ = "help@castellanidavide.it"
-__version__ = "01.01 2021-3-23"
+__version__ = "01.01 2021-03-23"
 
 class agentless:
 	def __init__ (self, verbose=False, csv=False, multithread=True, adresses="192.168.1.0/24", dbenable=False, dburl=None, dbtoken=None, dbtable=None):
@@ -69,20 +69,16 @@ class agentless:
 	def core(self):
 		"""Core of all project
 		"""
-
-		response = requests.request("POST", f"{self.dburl}", headers={'Content-Type': 'application/json','Authorization': f'''Basic {self.dbtoken}'''}, data=dumps({"operation": "create_attribute", "schema": "dev", "table": self.dbtable, "attribute": "port"}))
-		self.log.print(f"By DB: {loads(response.text)['message']}")
 		
 		# Get data
-		if self.multithread:
-			for ip in self.IPs:
-				for port in [21,22,23,80,110,139,389,443,445,1433,8080,3389]:
+		for ip in self.IPs:
+			for port in [21,22,23,80,110,139,389,443,445,1433,8080,3389]:
+				if self.multithread:
 					Thread(target=self.ping, args=(ip, port), daemon=True).start()
-			while active_count() > 1:
-				pass
-		else:
-			for ip in self.IPs:
-				self.ping(ip)
+				else:
+					self.ping(ip)
+		while active_count() > 1:
+			pass
 		
 		self.log.print("Pinged all")
 
