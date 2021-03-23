@@ -98,13 +98,6 @@ ATTENTION: Remember to run the code as Administrator
    - ~/* on linux
    - current location (if you didn't lauch the code with the correct rights)
 
-# Changelog
-![](https://www.ashoka.org/sites/default/files/styles/medium_1600x1000/public/old_way_new_way.jpg?itok=3JnbJz4O)
- - [Version_01.01_2021-3-22](#Version_0101_2021-3-22)
-
-## Version_01.01_2021-3-22
- - Initial version
-
 ---
 Made by Castellani Davide 
 If you have any problem please contact me:
