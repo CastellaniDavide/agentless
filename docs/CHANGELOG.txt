@@ -1,12 +1,6 @@
 # Changelog
 Template for Bellini's works
 
-## [01.01] - 2021-3-22
+## [01.01] - 2021-3-23
 ### Added
-- Something
-
-### Changed
-- Something
-
-### Removed
-- Something
+- Initial version

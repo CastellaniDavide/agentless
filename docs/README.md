@@ -88,6 +88,7 @@ This tool can help you scan the network
 ### Execution examples  
 ![](https://blog.toadworld.com/hs-fs/hubfs/SQL_tools-8_ways_large.jpg?width=3248&name=SQL_tools-8_ways_large.jpg)
  - agentless
+ATTENTION: Remember to run the code as Administrator
    
 ### Output location
 ![](https://www.macroeconomia.it/wp-content/uploads/2018/03/input-output-650x364.png)

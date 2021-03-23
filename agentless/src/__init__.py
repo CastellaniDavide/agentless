@@ -9,11 +9,11 @@ from json import loads, dumps
 import ipaddress
 import requests
 from threading import Thread, active_count
-from ping3 import ping, verbose_ping
+import socket 
 from datetime import datetime
 
 __author__ = "help@castellanidavide.it"
-__version__ = "01.01 2021-3-22"
+__version__ = "01.01 2021-3-23"
 
 class agentless:
 	def __init__ (self, verbose=False, csv=False, multithread=True, adresses="192.168.1.0/24", dbenable=False, dburl=None, dbtoken=None, dbtable=None):
@@ -44,11 +44,11 @@ class agentless:
 		try:
 			self.log = tabular_log("C:/Program Files/agentless/trace.log" if os.name == 'nt' else "~/trace.log", title = "agentless" , verbose = self.verbose, serverlink=None)
 		except:
-			self.log = tabular_log("trace.log", title = "agentless" ,verbose = self.verbose)
+			self.log = tabular_log("trace.log", title = "agentless", verbose = self.verbose)
 		self.log.print("Created log")
 
 		# Headers
-		self.header = "istance,IP,active"
+		self.header = "istance,IP,port,active"
 		self.log.print("Headers inizialized")
 
 		# If selected setup csv
@@ -61,18 +61,23 @@ class agentless:
 			
 			self.log.print("Inizialized CSV files")
 
-	def ping(self, ip):
+	def ping(self, ip, port):
 		"""Run a single ping
 		"""
-		self.IP.append({"istance": int(datetime.now().timestamp()), "IP": ip, "active" : ping(ip) != None})
+		self.IP.append({"istance": int(datetime.now().timestamp()), "IP": ip, "port": port, "active" : socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect_ex((ip, port)) == 0})
 
 	def core(self):
 		"""Core of all project
 		"""
+
+		response = requests.request("POST", f"{self.dburl}", headers={'Content-Type': 'application/json','Authorization': f'''Basic {self.dbtoken}'''}, data=dumps({"operation": "create_attribute", "schema": "dev", "table": self.dbtable, "attribute": "port"}))
+		self.log.print(f"By DB: {loads(response.text)['message']}")
+		
 		# Get data
 		if self.multithread:
 			for ip in self.IPs:
-				Thread(target=self.ping, args=(ip,)).start()
+				for port in [21,22,23,80,110,139,389,443,445,1433,8080,3389]:
+					Thread(target=self.ping, args=(ip, port), daemon=True).start()
 			while active_count() > 1:
 				pass
 		else:
@@ -84,7 +89,7 @@ class agentless:
 		# If csv is enabled add data to csv
 		if self.csv:
 			DictWriter(open(self.csv, 'a+', newline=''), fieldnames=self.header.split(","), restval='').writerows(self.IP)
-			self.log.print("Salved data on the csv")
+			self.log.print("Saved data on the csv")
 				
 		# If DB enabled try to insert infos
 		if self.dbenable:
@@ -116,31 +121,34 @@ class agentless:
 def laucher():
 	""" Lauch all getting the params by the arguments passed on launch
 	"""
-	# Get all aarguments
-	debug = "--debug" in argv or "-d" in argv
-	csv = "--csv" in argv
-	dbenable = dburl = dbtoken = dbtable = None
-	multithread = "--single" not in argv
-	adresses = []
-
-	for arg in argv:
-		if "--url=" in arg:
-			dburl = arg.replace("--url=", "")
-		if "--token=" in arg:
-			dbtoken = arg.replace("--token=", "")
-		if "--table=" in arg:
-			dbtable = arg.replace("--table=", "")
-		if "--adresses=" in arg:
-			adresses.append(arg.replace("--adresses=", ""))
-
-	if adresses == []:
-		adresses = ["192.168.1.0/24"]
-
-	# Launch the principal part of the code
-	if dburl != None and dbtoken != None and dbtable != None:
-		agentless(debug, csv, multithread, adresses, True, dburl, dbtoken, dbtable)
+	if "--help" in argv or "-h" in argv:
+		print("To get an help to know how to use this program write into the shell: 'man agentless', only for Linux.")
 	else:
-		agentless(debug, csv, multithread, adresses)
+		# Get all aarguments
+		debug = "--debug" in argv or "-d" in argv
+		csv = "--csv" in argv
+		dbenable = dburl = dbtoken = dbtable = None
+		multithread = "--single" not in argv
+		adresses = []
+
+		for arg in argv:
+			if "--url=" in arg:
+				dburl = arg.replace("--url=", "")
+			if "--token=" in arg:
+				dbtoken = arg.replace("--token=", "")
+			if "--table=" in arg:
+				dbtable = arg.replace("--table=", "")
+			if "--adresses=" in arg:
+				adresses.append(arg.replace("--adresses=", ""))
+
+		if adresses == []:
+			adresses = ["192.168.1.0/24"]
+
+		# Launch the principal part of the code
+		if dburl != None and dbtoken != None and dbtable != None:
+			agentless(debug, csv, multithread, adresses, True, dburl, dbtoken, dbtable)
+		else:
+			agentless(debug, csv, multithread, adresses)
 		
 if __name__ == "__main__":
 	laucher()
