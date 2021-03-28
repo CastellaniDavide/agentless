@@ -12,7 +12,7 @@ This tool can help you scan the network
 ## Installation
 ![](https://dctacademy.com/wp-content/uploads/2016/12/install.jpeg)
  - choco (Windows) (as Administartor)
-   - ```choco install agentless=01.01```
+   - ```choco install agentless --version=01.01```
  - Ubuntu using apt:
     - ```sudo add-apt-repository ppa:castellanidavide/school -y; sudo apt update; sudo apt install agentless -y```
 
