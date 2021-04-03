@@ -1,7 +1,7 @@
 # Changelog
 This tool can help you scan the network
 
-## [01.01] - 2021-3-23
+## [01.02] - 2021-04-03
 ### Added
 - GitHub Wiki
 ### Changed
