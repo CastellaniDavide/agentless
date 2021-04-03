@@ -1,3 +1,10 @@
+agentless (01.02) focal; urgency=medium
+
+  * Optimized README.md
+  * Created GitHub Wiki
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 03 Apr 2021 15:35:00 +1000
+
 agentless (01.01) focal; urgency=medium
 
   * Initial version
