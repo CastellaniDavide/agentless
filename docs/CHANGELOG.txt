@@ -1,5 +1,11 @@
 # Changelog
-Template for Bellini's works
+This tool can help you scan the network
+
+## [01.01] - 2021-3-23
+### Added
+- GitHub Wiki
+### Changed
+- Optimized README.md
 
 ## [01.01] - 2021-3-23
 ### Added
