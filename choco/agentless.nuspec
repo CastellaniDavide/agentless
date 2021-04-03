@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>agentless</id>
-    <version>01.01</version>
+    <version>01.02</version>
     <title>agentless</title>
     <authors>Castellani Davide</authors>
     <projectUrl>https://github.com/CastellaniDavide/agentless</projectUrl>
